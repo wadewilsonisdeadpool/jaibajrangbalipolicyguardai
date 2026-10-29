@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: policyguard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: policyguard
+      POSTGRES_PASSWORD: policyguard_dev
+      POSTGRES_DB: policyguard
+    ports:
+      - "5432:5432"
+    volumes:
+      - policyguard_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U policyguard -d policyguard"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  policyguard_pgdata:

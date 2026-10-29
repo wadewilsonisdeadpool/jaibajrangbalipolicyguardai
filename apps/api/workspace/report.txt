@@ -1,0 +1,3 @@
+PolicyGuard Research Report - Q3
+
+Tool-using AI agents increasingly act on real systems. This quarter we evaluated authorization controls placed between the model and its tools. Key finding: static allow/deny lists block obvious misuse but miss context-dependent attacks such as indirect prompt injection, where instructions hidden in documents redirect the agent. Risk-adaptive authorization reduced unsafe actions while keeping most benign tasks fully automated.
